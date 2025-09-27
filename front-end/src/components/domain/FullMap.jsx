@@ -3,7 +3,7 @@ import { useState } from "react";
 import Map, { Source, Layer, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const MAPBOX_TOKEN = "pk.eyJ1Ijoic3ZhcGUyMTMiLCJhIjoiY204YzhsMmR0MW40cDJxcTFveXAyYmppMyJ9.erDPDm9SwAigpSj6FURroA"; // usar .env posteriormente
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 // Ruta hardcodeada
 const route = {
