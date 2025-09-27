@@ -43,7 +43,6 @@ export default function FullMap() {
 
   return (
     <div>
-        <Header />
         <div style={{ width: "100vw", height: "100vh", zIndex: 0 }}>
         <Map
             // Coordenadas centradas en Bogotá, Colombia
