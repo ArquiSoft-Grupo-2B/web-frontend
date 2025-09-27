@@ -14,8 +14,8 @@ export default function Navbar({ showAuthButtons = true }) {
         <div className={styles.logo}>
           <Link to="/" className={styles.logoLink} aria-label="Redirección a página de inicio">
             <img src="/icons/logo.svg" alt="Logo Runpath" className={styles.logoIcon} />
+            <span className={styles.logoText}>RunPath</span>
           </Link>
-          <span className={styles.logoText}>RunPath</span>
         </div>
 
         {showAuthButtons ? (
