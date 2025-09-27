@@ -1,11 +1,9 @@
 import './App.css';
 import FullMap from "./components/domain/FullMap.jsx";
-import Header from './components/layout/header.jsx';
+import Navbar from './components/layout/navbar.jsx';
 
 function App() {
-  return <Header />;
-  return <FullMap />;
-  return 
+  return <Navbar showAuthButtons={false}/>;
 }
 
 export default App;
