@@ -1,0 +1,45 @@
+.button {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+/* Variantes */
+.primary {
+  background: #ff8000;
+  color: white;
+  border: 2px solid #ff8000;
+}
+
+.primary:hover {
+  background: #fa8e22;
+}
+
+.secondary {
+  background: white;
+  color: #1c1c1e;
+  border: 2px solid #1c1c1e;
+}
+
+.secondary:hover {
+  background: #1c1c1e;
+  color: white;
+}
+
+/* Tamaños */
+.sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.md {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+}
+
+.lg {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.1rem;
+}

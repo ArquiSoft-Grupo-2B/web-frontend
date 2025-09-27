@@ -1,11 +1,11 @@
-import './App.css'
+import './App.css';
+import FullMap from "./components/domain/FullMap.jsx";
+import Header from './components/layout/header.jsx';
 
 function App() {
-  
-
-  return (
-    <div className="App">
-  )
+  return <Header />;
+  return <FullMap />;
+  return 
 }
 
-export default App
+export default App;
