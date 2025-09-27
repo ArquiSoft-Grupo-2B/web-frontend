@@ -3,17 +3,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: var(--padding-internal) 0;
   width: 100%;
   margin: 0 auto;
-  background: #f0efe7;
+  background: var(--color-light);
   box-sizing: border-box;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  padding-left: var(--padding-lateral);
 }
 
 .logoLink {
@@ -39,6 +39,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding-right: var(--padding-lateral);
 }
 
 

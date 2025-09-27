@@ -8,24 +8,24 @@
 
 /* Variantes */
 .primary {
-  background: #ff8000;
-  color: white;
-  border: 2px solid #ff8000;
+  background: var(--color-accent);
+  color: var(--color-light);
+  border: 2px var(--color-accent);
 }
 
 .primary:hover {
-  background: #fa8e22;
+  background: var(--color-accent-hover);
 }
 
 .secondary {
-  background: white;
-  color: #1c1c1e;
-  border: 2px solid #1c1c1e;
+  background: var(--color-light);
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
 }
 
 .secondary:hover {
-  background: #1c1c1e;
-  color: white;
+  background: var(--color-dark);
+  color: var(--color-light);
 }
 
 /* Tamaños */

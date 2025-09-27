@@ -11,17 +11,19 @@ const route = {
   geometry: {
     type: "LineString",
     coordinates: [
-      [-74.08581, 4.63692], 
-      [-74.05, 4.63],
-      [-74.02, 4.64],
-      [-74.13671, 4.62561]   
+      [-73.9731, 40.7644],
+      [-73.9712, 40.7681],
+      [-73.9654, 40.7723]
     ]
   },
   properties: {
-    distancia: "5.2 km",
-    duracion: "15 min"
+    id: "deb5c03a-8ced-441b-8f2b-4ac7a47835ca",
+    distancia: "1.1 km",
+    duracion: "13 min",
+    nombre: "Ruta de Running en Central Park"
   }
 };
+
 
 export default function FullMap() {
   const [popupInfo, setPopupInfo] = useState(null);   
@@ -47,8 +49,8 @@ export default function FullMap() {
         <Map
             // Coordenadas centradas en Bogotá, Colombia
             initialViewState={{
-            longitude: -74.08175,
-            latitude: 4.60971,
+            longitude: -73.97175,
+            latitude: 40.760971,
             zoom: 12
             }}
             // Estilo y token de Mapbox
