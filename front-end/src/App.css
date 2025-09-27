@@ -4,11 +4,14 @@
 
 :root {
   --color-primary: #007AFF;
+  --color-primary-hover: #49a1ff;
   --color-secondary: #2ECC71;
+  --color-secondary-hover: #75d29c;
   --color-accent: #FF8000;
   --color-accent-hover: #ff9429;
   --color-light: #F9F9F9;
   --color-dark: #1C1C1E;
+  --color-dark-hover: #777;
 
   --font-family: 'Montserrat', sans-serif;
 
