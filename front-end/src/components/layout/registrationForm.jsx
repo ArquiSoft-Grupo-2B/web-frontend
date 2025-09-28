@@ -2,7 +2,7 @@ import react from 'react';
 import FormField from '../ui/formField';
 import PasswordField from '../ui/passwordField';
 import SendFormButton from '../ui/sendFormButton';
-import styles from '../../styles/Form.module.css';
+import styles from '../../styles/FormRegistration.module.css';
 
 export default function RegistrationForm() {
   return (
