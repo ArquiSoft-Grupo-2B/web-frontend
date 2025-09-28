@@ -1,5 +1,5 @@
 .container{
-    max-width: 40%;
+    max-width: 30%;
     margin: auto;
     padding: 20px;
     justify-content: center;
@@ -8,7 +8,7 @@
 
 .title{
     text-align: center;
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 30px;
@@ -22,24 +22,35 @@
   justify-content: center;
 }
 
-.redirect_text{
+.forgot_link{
     text-align: center;
-    margin-top: 50px;
+    margin-bottom: 15px;
     font-weight: 600;
     color: var(--color-dark);
+    font-size: 0.875rem;
+    align-self: flex-end;
+}
+
+.redirect_text{
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 0.875rem;
 }
 
 .redirect_link{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
     font-weight: 600;
     color: var(--color-dark);
     text-decoration: underline;
+    font-size: 0.875rem;
 }
 
 @media (max-width: 768px) {
     .container{
-        max-width: 70%;
+        max-width: 60%;
     }
 }
 
