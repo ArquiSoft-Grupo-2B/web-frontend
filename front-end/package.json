@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@apollo/client": "^4.0.6",
-    "graphql": "^16.11.0",
+    "@turf/bbox": "^7.2.0",
     "lucide-react": "^0.544.0",
     "mapbox-gl": "^3.15.0",
     "react": "^19.1.1",

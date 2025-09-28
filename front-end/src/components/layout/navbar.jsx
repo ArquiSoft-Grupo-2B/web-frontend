@@ -50,7 +50,7 @@ export default function Navbar({ showAuthButtons = true }) {
             </Link>
           </div>
           ) : (
-            <ProfileMenu onLogout={handleLogout} />
+            <ProfileMenu onLogout={handleLogout} customStyle={{ paddingRight: "var(--padding-lateral)" }} />
           )}
           </>
         )} 
