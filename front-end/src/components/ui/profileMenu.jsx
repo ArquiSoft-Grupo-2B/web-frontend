@@ -3,7 +3,7 @@ import styles from "../../styles/ProfileMenu.module.css";
 import { Link } from "react-router-dom";
 import useClickOutside from '../../hooks/useClickOutside.jsx';
 
-export default function ProfileMenu( { onLogout } ) {
+export default function ProfileMenu( { onLogout , customStyle } ) {
   const [isOpen, setIsOpen] = useState(false);
   const profileRef = useRef(null);
 
@@ -14,7 +14,7 @@ export default function ProfileMenu( { onLogout } ) {
   }
   
   return (
-    <div className={styles.profileContainer} ref={profileRef}>
+    <div className={styles.profileContainer} style={customStyle} ref={profileRef}>
       {/* Imagen de perfil */}
       <div 
         className={styles.profilePic} 
