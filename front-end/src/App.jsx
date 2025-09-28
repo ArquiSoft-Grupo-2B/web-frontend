@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import ViewHome from './views/homeView.jsx';
 import ViewMap from './views/mapView.jsx';
+import RegistrationView from './views/registrationView.jsx';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       {/* Rutas publicas */}
       <Route path="/" element={<ViewHome />} />
       <Route path="/login" element={<></>} />
-      <Route path="/register" element={<></>} />
+      <Route path="/register" element={<RegistrationView />} />
       <Route path="/pass-recovery" element={<></>} />
       {/* Rutas privadas */}
       <Route 

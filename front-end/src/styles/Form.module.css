@@ -22,6 +22,21 @@
   justify-content: center;
 }
 
+.redirect_text{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.redirect_link{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 600;
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .container{
         max-width: 70%;
