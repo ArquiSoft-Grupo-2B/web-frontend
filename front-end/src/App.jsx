@@ -7,6 +7,8 @@ import ViewHome from './views/homeView.jsx';
 import ViewMap from './views/mapView.jsx';
 import RegistrationView from './views/registrationView.jsx';
 import LoginView from './views/loginView.jsx';
+import SendEmailRecoverView from './views/sendEmailRecoverView.jsx';
+import ChangePasswordView from './views/changePasswordView.jsx';
 
 function App() {
 
@@ -16,7 +18,8 @@ function App() {
       <Route path="/" element={<ViewHome />} />
       <Route path="/login" element={<LoginView />} />
       <Route path="/register" element={<RegistrationView />} />
-      <Route path="/pass-recovery" element={<></>} />
+      <Route path="/forgot-pass" element={<SendEmailRecoverView />} />
+      <Route path="/pass-recovery" element={<ChangePasswordView />} />
       {/* Rutas privadas */}
       <Route 
         path='/profile' 
