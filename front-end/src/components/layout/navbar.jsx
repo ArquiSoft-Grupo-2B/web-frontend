@@ -11,7 +11,7 @@ export default function Navbar({ showAuthButtons = true }) {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const authRoutes = ['/login', '/register', '/forgot-password', '/reset-password'];
+  const authRoutes = ['/login', '/register', '/forgot-pass', '/pass-recovery'];
 
   // Verificar si la ruta actual está en el arreglo
   const isOnAuthPage = authRoutes.includes(location.pathname);

@@ -1,7 +1,7 @@
 import react from 'react';
 import LoginForm from '../components/layout/loginForm';
 import { Link } from "react-router-dom";
-import styles from "../styles/FormLogin.module.css";
+import styles from "../styles/Form.module.css";
 import Navbar from '../components/layout/navbar.jsx';
 
 export default function LoginView() {
