@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: react_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_MAPBOX_TOKEN=${VITE_MAPBOX_TOKEN}
+    command: npm run dev -- --host 0.0.0.0
+
