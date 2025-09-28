@@ -8,8 +8,6 @@ import ViewMap from './views/mapView.jsx';
 
 function App() {
 
-
-
   return (
     <Routes>
       {/* Rutas publicas */}
@@ -34,7 +32,6 @@ function App() {
           </PrivateRoute>
         }>
       </Route>
-      
     </Routes>
   );
 }

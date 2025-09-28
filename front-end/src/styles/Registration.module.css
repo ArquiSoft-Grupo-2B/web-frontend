@@ -1,0 +1,29 @@
+.container{
+    max-width: 40%;
+    margin: auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    color: var(--color-accent);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.formregistration {
+  display: flex;
+  flex-direction: column;
+  align-items: start;  
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .container{
+        max-width: 70%;
+    }
+}
+
