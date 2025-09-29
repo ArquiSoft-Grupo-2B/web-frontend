@@ -1,39 +1,48 @@
 // src/components/domain/FullMap.jsx
-import { useState, useRef } from "react";
+import React, { useState, useRef} from "react";
 import Map, { Source, Layer, Marker, Popup } from "react-map-gl";
 import bbox from "@turf/bbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import styles from "../../styles/FullMap.module.css";
+import Button from "../ui/button";
 import { fetchNearbyRoutes } from "../../services/routesService";
-import InfoPopup from "../ui/infoPopup.jsx";
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
-export default function FullMap({ userLocation, setUserLocation, loadingLocation }) {
+export default function FullMap({ userLocation, setUserLocation, loadingLocation, setInfoMessage }) {
   const [routes, setRoutes] = useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
   const [menuOpen, setMenuOpen] = useState(true);
   const [radius, setRadius] = useState(3000);
-  const [infoMessage, setInfoMessage] = useState(null);
   const mapRef = useRef(null);
 
   // Buscar rutas
   const handleSearch = async () => {
     if (!userLocation) return;
+
     try {
       setInfoMessage({ type: "info", text: "Buscando rutas cercanas..." });
-      const data = await fetchNearbyRoutes(userLocation[0], userLocation[1], radius);
+
+      const data = await fetchNearbyRoutes(userLocation[1], userLocation[0], radius);
       setRoutes(data);
-      setInfoMessage({ type: "success", text: `Se encontraron ${data.features.length} rutas.` });
+
+      setInfoMessage({
+        type: "success",
+        text: `Se encontraron ${data.features.length} rutas.`,
+      });
 
       if (data.features.length > 0) {
         const [minX, minY, maxX, maxY] = bbox(data);
-        mapRef.current.fitBounds([[minX, minY], [maxX, maxY]], { padding: 60, duration: 1000 });
+        mapRef.current.fitBounds([[minX, minY], [maxX, maxY]], {
+          padding: 60,
+          duration: 1000,
+        });
       }
     } catch (err) {
       setInfoMessage({ type: "error", text: err.message });
     }
   };
+
 
   const handleMapClick = (e) => {
     const feature = e.features?.[0];
@@ -53,10 +62,6 @@ export default function FullMap({ userLocation, setUserLocation, loadingLocation
         </div>
       )}
 
-      {/* Popup informativo */}
-      {infoMessage && (
-        <InfoPopup message={infoMessage.text} type={infoMessage.type} onClose={() => setInfoMessage(null)} />
-      )}
 
       {/* Menú flotante */}
       <div className={`${styles.menu} ${menuOpen ? styles.open : styles.collapsed}`}>
@@ -68,7 +73,9 @@ export default function FullMap({ userLocation, setUserLocation, loadingLocation
         <div className={styles.menuContent}>
           <label>Radio de búsqueda (m):</label>
           <input type="number" value={radius} onChange={(e) => setRadius(Number(e.target.value))} />
-          <button onClick={handleSearch}>Buscar</button>
+          <Button onClick={handleSearch} variant="primary" size="md">
+            Buscar
+          </Button>
         </div>
       </div>
 
@@ -84,6 +91,9 @@ export default function FullMap({ userLocation, setUserLocation, loadingLocation
         mapboxAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={["route-line"]}
         onClick={handleMapClick}
+        dragRotate={false}
+        touchZoomRotate={true}
+        pitchWithRotate={false}
       >
         {/* Rutas */}
         {routes && (
@@ -95,6 +105,65 @@ export default function FullMap({ userLocation, setUserLocation, loadingLocation
             />
           </Source>
         )}
+
+        {/* Marcadores de inicio y fin de cada ruta */}
+        {routes?.features?.map((route, index) => {
+          let coords = [];
+
+          // Maneja LineString
+          if (route.geometry?.type === "LineString") {
+            coords = route.geometry.coordinates;
+          }
+
+          // Maneja MultiLineString
+          if (route.geometry?.type === "MultiLineString") {
+            coords = route.geometry.coordinates[0]; // usa el primer segmento
+          }
+
+          if (!coords || coords.length === 0) return null;
+
+          const start = coords[0];
+          const end = coords[coords.length - 1];
+
+          console.log("🧭 Ruta", index, "inicio:", start, "fin:", end);
+
+          return (
+            <React.Fragment key={index}>
+              <Marker longitude={start[0]} latitude={start[1]} anchor="bottom">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="#FF7A00"
+                  stroke="#F9F9F9"
+                  strokeWidth="1"
+                  style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))" }}
+                >
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5S13.93 12.5 12 12.5z" />
+                </svg>
+              </Marker>
+
+              <Marker longitude={end[0]} latitude={end[1]} anchor="bottom">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="#FF7A00"
+                  stroke="#F9F9F9"
+                  strokeWidth="1"
+                  style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))" }}
+                >
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5S13.93 12.5 12 12.5z" />
+                </svg>
+              </Marker>
+
+            </React.Fragment>
+          );
+        })}
+
+
 
         {/* Marcador de usuario (arrastrable) */}
         {userLocation && (
