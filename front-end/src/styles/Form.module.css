@@ -1,9 +1,19 @@
 .container{
-    max-width: 30%;
-    margin: auto;
+    max-width: 40%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.spacer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0;
 }
 
 .title{
@@ -28,6 +38,7 @@
   align-items: center;  
   margin-bottom: 10px;
   justify-content: center;
+  width: 100%;
 }
 
 .forgot_link{
@@ -54,6 +65,14 @@
     color: var(--color-dark);
     text-decoration: underline;
     font-size: 0.875rem;
+}
+
+.buttonrow{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
 }
 
 @media (max-width: 768px) {

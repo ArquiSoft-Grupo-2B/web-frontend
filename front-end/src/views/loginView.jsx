@@ -6,14 +6,14 @@ import Navbar from '../components/layout/navbar.jsx';
 
 export default function LoginView() {
   return (
-    <>
+    <div className={styles.view}>
       <Navbar />
       <div className={styles.container}>
           <p className={styles.title}>Iniciar Sesión</p>
               <LoginForm />
           <p className={styles.redirect_text}>¿No tienes una cuenta creada? <Link to="/register" className={styles.redirect_link}>Regístrate</Link></p>
       </div>
-    </>
+    </div>
     
   );
 }

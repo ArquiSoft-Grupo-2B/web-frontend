@@ -3,8 +3,7 @@ import React from "react";
 import { useState } from "react";
 
 
-export default function FormField({ label, testid, value=""}) {
-  const [text, setText] = useState(value);
+export default function DisabledField({ text, testid}) {
 
   return (
     <div className={styles.formField}>
@@ -13,6 +12,7 @@ export default function FormField({ label, testid, value=""}) {
         type='text'
         className={styles.input}
         value={text}
+        readOnly
         onChange={(e) => setText(e.target.value)}
         data-testid={testid}
     />
