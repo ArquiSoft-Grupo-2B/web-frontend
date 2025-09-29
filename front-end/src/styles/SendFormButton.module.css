@@ -4,7 +4,6 @@
     background-color: var(--color-primary);
     color: var(--color-light);
     border-radius: 10rem;
-    align-self: center;
 }
 
 .sendButtonSecondary {  
@@ -13,7 +12,6 @@
     background-color: var(--color-accent);
     color: var(--color-light);
     border-radius: 10rem;
-    align-self: center;
 }
 
 .sendButtonTertiary {  
@@ -22,7 +20,6 @@
     background-color: var(--color-secondary);
     color: var(--color-light);
     border-radius: 10rem;
-    align-self: center;
 }
 
 .sendButtonPrimary:hover {
@@ -31,12 +28,12 @@
 }
 
 .sendButtonSecondary:hover {
-    background-color: var(--color-secondary-hover);
+    background-color: var(--color-accent-hover);
     cursor: pointer;
 }
 
 .sendButtonTertiary:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-secondary-hover);
     cursor: pointer;
 }
 

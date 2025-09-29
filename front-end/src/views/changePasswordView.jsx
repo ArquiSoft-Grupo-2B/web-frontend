@@ -6,13 +6,13 @@ import Navbar from '../components/layout/navbar.jsx';
 
 export default function ChangePassword() {
   return (
-    <>
+    <div className={styles.view}>
       <Navbar />
       <div className={styles.container}>
           <p className={styles.title2}>Cambiar Contraseña</p>
               <ChangePasswordForm />
       </div>
-    </>
+    </div>
     
   );
 }
