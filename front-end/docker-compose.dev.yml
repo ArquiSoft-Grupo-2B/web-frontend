@@ -16,3 +16,8 @@ services:
       - VITE_MAPBOX_TOKEN=${VITE_MAPBOX_TOKEN}
     command: npm run dev -- --host 0.0.0.0
 
+
+networks:
+  routes_shared_network:
+    external: true
+
