@@ -12,11 +12,11 @@ export default function PasswordField({ label, testid, value = "", setValue }) {
 
   return (
     <div className={styles.passwordField}>
-      {value === "" && <p className={styles.input_label}>{label}</p>}
       <input
         type={showPassword ? "text" : "password"}
         className={styles.input}
         value={value}
+        placeholder={label}
         onChange={(e) => setValue(e.target.value)}
         data-testid={testid}
       />

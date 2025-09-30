@@ -45,7 +45,7 @@ export default function RegistrationForm() {
       if (response.data?.loginUser) {
         setSuccess("Usuario logueado correctamente");
         login(response.data.loginUser.idToken);
-        navigate("/map");
+        navigate("/login");
       } 
     
     } catch (err) {
