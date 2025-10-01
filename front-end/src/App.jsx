@@ -19,13 +19,12 @@ function App() {
       <Route path="/login" element={<LoginView />} />
       <Route path="/register" element={<RegistrationView />} />
       <Route path="/forgot-pass" element={<SendEmailRecoverView />} />
-      <Route path="/profile-edit" element={<ProfileEditView />} />
       {/* Rutas privadas */}
       <Route 
         path='/profile' 
         element={
           <PrivateRoute>
-            <></>
+            <ProfileEditView />
           </PrivateRoute>
         }>
       </Route>
