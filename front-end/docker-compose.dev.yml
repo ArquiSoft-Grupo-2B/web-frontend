@@ -13,6 +13,7 @@ services:
       - NODE_ENV=development
       - VITE_MAPBOX_TOKEN=${VITE_MAPBOX_TOKEN}
       - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_API_AUTH_URL=${VITE_API_AUTH_URL}
     command: npm run dev -- --host 0.0.0.0
     networks:
       - routes_shared_network
