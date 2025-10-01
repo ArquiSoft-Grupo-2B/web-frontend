@@ -36,7 +36,7 @@ main {
 }
 
 .heroTitle {
-  font-size: 3rem;
+  font-size: var(--font-size-h1);
   font-weight: bold;
   color: var(--color-dark);
   line-height: 1.1;
@@ -120,14 +120,15 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end; /* Aligns all child elements to the right */
+  text-align: right;     /* Ensures text inside is right-aligned */
 }
 
 
 .smallMap {
   max-width: 80%;  
   max-height: 400px;
-       
+  margin-right: 1rem;
 }
 
 

@@ -30,7 +30,7 @@ export default function ProfileMenu( { onLogout , customStyle } ) {
       {/* Popup */}
       {isOpen && (
         <div className={styles.popupMenu}>
-          <Link to="/profile" aria-label="Redirección a página de perfil">
+          <Link to="/profile-edit" aria-label="Redirección a página de perfil">
             <button>Editar perfil</button>
           </Link>
           <button onClick={onLogout}>Cerrar sesión</button>
