@@ -1,12 +1,12 @@
 import styles from "../../styles/PreviewPicture.module.css";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function PreviewPicture({ route="/images/profile-placeholder.png", label, testid}) {
+export default function PreviewPicture({ route, label, testid}) {
 
   return (
     <div className={styles.picture_container}>
-        <img src="/images/profile-placeholder.png" alt={label} className={styles.picture} data-testid={testid}></img>
+        <img src={route} alt={label} className={styles.picture} data-testid={testid}></img>
     </div>
   );
 }

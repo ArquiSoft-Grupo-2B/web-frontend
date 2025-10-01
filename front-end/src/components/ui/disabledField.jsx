@@ -3,15 +3,14 @@ import React from "react";
 import { useState } from "react";
 
 
-export default function DisabledField({ text, testid}) {
+export default function DisabledField({ value, testid}) {
 
   return (
     <div className={styles.formField}>
-      {text === "" && <p className={styles.input_label}>{label}</p>}
       <input
         type='text'
         className={styles.input}
-        value={text}
+        value={value}
         readOnly
         onChange={(e) => setText(e.target.value)}
         data-testid={testid}
