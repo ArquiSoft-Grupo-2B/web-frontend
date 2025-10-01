@@ -1,6 +1,7 @@
-// src/utils/graphql/fetchGraphQL.js
+const API_BASE_AUTH = import.meta.env.VITE_API_AUTH_URL || "http://localhost:8000";
+
 export async function fetchGraphQL(query, variables = {}) {
-  const res = await fetch("http://localhost:8000/graphql", {
+  const res = await fetch(`${API_BASE_AUTH}/graphql`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
