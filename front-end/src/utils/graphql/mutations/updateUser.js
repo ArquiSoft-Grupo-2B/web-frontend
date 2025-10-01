@@ -1,5 +1,5 @@
 export const UPDATE_USER = `
-    mutation UpdateUser ($email: String!, $password: String!, $alias: String!){
+    mutation UpdateUser ($email: String!, $password: String, $alias: String!){
         updateUser(
             userInput: {
             email: $email

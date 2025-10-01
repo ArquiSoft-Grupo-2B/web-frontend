@@ -63,24 +63,22 @@ export default function EditProfileForm({ setPhoto }) {
       }
 
       if (!password.trim()) {
-        // try {
-        // const response_update = await fetchGraphQL(UPDATE_USER, { idUser, email , alias });
+        try {
+          const response_update = await fetchGraphQL(UPDATE_USER, { email , alias });
+          if (response_update.errors?.[0]?.message) {
+            console.error(response_update.errors[0].message);
+            setError(response_update.errors[0].message);
+            return;
+          }
+          if (response_update.data) {
+            setSuccess("Usuario logueado correctamente");
+            navigate("/map");
+          } 
   
-        // if (response_update.errors?.[0]?.message) {
-        //     console.error(response_update.errors[0].message);
-        //     setError(response_update.errors[0].message);
-        //     return;
-        // }
-  
-        // if (response_update.data) {
-        //   setSuccess("Usuario logueado correctamente");
-        //   navigate("/map");
-        // } 
-  
-        // } catch (err) {
-        //   console.error(err);
-        //   setError("Hubo un error en la petición");
-        // }
+        } catch (err) {
+          console.error(err);
+          setError("Hubo un error en la petición");
+        }
       }
       else{
         try {
@@ -117,7 +115,7 @@ export default function EditProfileForm({ setPhoto }) {
       <p>Llena este campo solamente si quieres cambiar tu contraseña actual</p>
       <div className={styles.buttonrow}>
         <SendFormButton label="Guardar Cambios" testid="save-button" type={1} />
-        <RedirectButton route="/map" label="Descartar Cambios" testid="cancel-button" type={2} />
+        <RedirectButton redirectTo="/map" label="Descartar Cambios" testid="cancel-button" type={2} />
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {success && <p style={{ color: "green" }}>{success}</p>}
