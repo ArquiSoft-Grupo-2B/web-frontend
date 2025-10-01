@@ -39,6 +39,8 @@ export default function LoginForm() {
       if (response.data?.loginUser) {
         setSuccess("Usuario logueado correctamente");
         login(response.data.loginUser.idToken);
+        localStorage.setItem('iduser', response.data.loginUser.localId);
+        console.log(response.data);
         navigate("/map");
       } 
 
