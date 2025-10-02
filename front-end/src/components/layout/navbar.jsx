@@ -29,7 +29,11 @@ export default function Navbar({ showAuthButtons = true }) {
     <>
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link to="/" className={styles.logoLink} aria-label="Redirección a página de inicio">
+          <Link 
+            to={isAuthenticated ? "/map" : "/"} 
+            className={styles.logoLink} 
+            aria-label="Redirección a página de inicio"
+          >
             <img src="/icons/logo.svg" alt="Logo Runpath" className={styles.logoIcon} />
             <span className={styles.logoText}>RunPath</span>
           </Link>
