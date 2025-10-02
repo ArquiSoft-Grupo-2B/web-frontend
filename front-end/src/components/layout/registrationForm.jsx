@@ -3,6 +3,7 @@ import FormField from "../ui/formField";
 import PasswordField from "../ui/passwordField";
 import SendFormButton from "../ui/sendFormButton";
 import styles from "../../styles/Form.module.css";
+import { useNavigate } from "react-router-dom";
 import { fetchGraphQL } from "../../utils/graphql/fetchGraphQL";
 import { CREATE_USER } from "../../utils/graphql/mutations/createUser";
 
@@ -13,6 +14,7 @@ export default function RegistrationForm() {
   const [confirmpassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,9 @@ export default function RegistrationForm() {
         password,
         alias,
       });
-    
+      
+      console.log(response);
+
       if (response.errors?.[0]?.message) {
         console.error(response.errors[0].message);
         setError(response.errors[0].message);
