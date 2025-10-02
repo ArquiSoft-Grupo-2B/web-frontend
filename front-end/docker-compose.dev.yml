@@ -1,0 +1,23 @@
+services:
+  frontend:
+    container_name: react_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_MAPBOX_TOKEN=${VITE_MAPBOX_TOKEN}
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_API_AUTH_URL=${VITE_API_AUTH_URL}
+    command: npm run dev -- --host 0.0.0.0
+    networks:
+      - routes_shared_network
+
+networks:
+  routes_shared_network:
+    external: true
