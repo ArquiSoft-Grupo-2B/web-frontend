@@ -42,8 +42,8 @@ export default function RegistrationForm() {
         return;
       }
     
-      if (response.data?.loginUser) {
-        setSuccess("Usuario logueado correctamente");
+      if (response.data) {
+        setSuccess("Usuario registrado correctamente");
         navigate("/login");
       } 
     
