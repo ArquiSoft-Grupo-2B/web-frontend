@@ -71,7 +71,7 @@ export default function EditProfileForm({ setPhoto }) {
             return;
           }
           if (response_update.data) {
-            setSuccess("Usuario logueado correctamente");
+            setSuccess("Usuario actualizado correctamente");
             navigate("/map");
           } 
   
@@ -95,7 +95,7 @@ export default function EditProfileForm({ setPhoto }) {
         }
   
         if (response_update.data) {
-          setSuccess("Usuario logueado correctamente");
+          setSuccess("Usuario actualizado correctamente");
           navigate("/map");
         } 
   

@@ -20,8 +20,8 @@ export default function LoginView() {
         <div className={styles.container}>
               <p className={styles.title}>Mi Perfil</p>
               <EditProfileForm />
-              <UploadFileButton  label="Subir Foto de Perfil" testid="upload-button" type={3}
-                accept="image/*" multiple={false} setPhoto={setPhoto}/>
+              {/* <UploadFileButton  label="Subir Foto de Perfil" testid="upload-button" type={3}
+                accept="image/*" multiple={false} setPhoto={setPhoto}/> */}
         </div> 
       </div>
       
