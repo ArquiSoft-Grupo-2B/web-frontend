@@ -21,7 +21,7 @@ function App() {
       <Route path="/forgot-pass" element={<SendEmailRecoverView />} />
       {/* Rutas privadas */}
       <Route 
-        path='/profile' 
+        path='/profile-edit' 
         element={
           <PrivateRoute>
             <ProfileEditView />
