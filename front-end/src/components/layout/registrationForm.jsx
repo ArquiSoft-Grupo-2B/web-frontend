@@ -42,9 +42,8 @@ export default function RegistrationForm() {
         return;
       }
     
-      if (response.data?.loginUser) {
-        setSuccess("Usuario logueado correctamente");
-        login(response.data.loginUser.idToken);
+      if (response.data) {
+        setSuccess("Usuario registrado correctamente");
         navigate("/login");
       } 
     
